@@ -22,8 +22,8 @@ db.user = require('../models/user')(sequelize,DataTypes);
 db.contacts = require('../models/contacts')(sequelize,DataTypes);
 
 // Associations
-db.user.hasOne(db.contacts, { foreignKey: 'user_id' });
-db.contacts.belongsTo(db.user, { foreignKey: 'user_id' });
+// db.user.hasOne(db.contacts, { foreignKey: 'user_id' });
+// db.contacts.belongsTo(db.user, { foreignKey: 'user_id' });
 
 db.sequelize.sync({ alter:true }).then(() => {
   console.log("Database synchronized.");
