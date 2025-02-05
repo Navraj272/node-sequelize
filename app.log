@@ -1,0 +1,10 @@
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users\",\"status\":\"200\",\"responseTime\":\"86.826\"}","timestamp":"2025-02-05T14:26:03.186Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Signup\",\"status\":\"400\",\"responseTime\":\"112.181\"}","timestamp":"2025-02-05T14:27:49.585Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Signup\",\"status\":\"201\",\"responseTime\":\"220.342\"}","timestamp":"2025-02-05T14:27:59.947Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Login\",\"status\":\"200\",\"responseTime\":\"194.930\"}","timestamp":"2025-02-05T14:28:20.059Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Signup\",\"status\":\"500\",\"responseTime\":\"256.531\"}","timestamp":"2025-02-05T14:31:50.660Z"}
+{"level":"\u001b[33mwarn\u001b[39m","message":"Signup attempt failed: Email already exists - egfour@example.com","timestamp":"2025-02-05T14:36:16.215Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Signup\",\"status\":\"400\",\"responseTime\":\"42.254\"}","timestamp":"2025-02-05T14:36:16.224Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"User created successfully: egfive@example.com","timestamp":"2025-02-05T14:36:29.015Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"POST\",\"url\":\"/api/Signup\",\"status\":\"201\",\"responseTime\":\"238.987\"}","timestamp":"2025-02-05T14:36:29.021Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"{\"method\":\"GET\",\"url\":\"/api/users\",\"status\":\"200\",\"responseTime\":\"203.446\"}","timestamp":"2025-02-05T14:37:49.158Z"}

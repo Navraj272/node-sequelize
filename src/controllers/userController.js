@@ -3,52 +3,43 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken');
 const User = db.user; 
 const Contacts=db.contacts;
+const logger = require('../../logger.js'); 
+
 
 const SignUp = async (req, res) => {
-    
     try {
-        const {email,password,...userdata} = req.body;
+        const { email, password, ...userdata } = req.body;
 
         const exists = await User.findOne({
-            where: {email}
+            where: { email }
         });
 
         if (exists) {
-            return res.status(400).send('Email is already exists');
+            logger.warn(`Signup attempt failed: Email already exists - ${email}`);
+            return res.status(400).send('Email already exists');
         }
-            
-        // if (Array.isArray(req.body)) {
-            
-        //     const usersData = await Promise.all(req.body.map(async user => ({
-        //         firstName: user.firstName,
-        //         lastName: user.lastName,
-        //         email: user.email,
-        //         password: await bcrypt.hash(user.password, 10)
-        //     })));
 
-        //     const users = await User.bulkCreate(usersData);
-        //     return res.status(201).json({ users });
-        // }
-        
-        // else{
-            var user = await User.create({
-                ...userdata,
-                email,
-                password: await bcrypt.hash(password,10)
-            });
-            console.log("User created successfully");
-        // }
+        const user = await User.create({
+            ...userdata,
+            email,
+            password: await bcrypt.hash(password, 10)
+        });
 
-        
-    
-        return res.status(201).json({ user }); // yha se json ke alava bhi send krskte h
-    
-    
+        logger.info(`User created successfully: ${email}`);
+
+        const token = jwt.sign({ id: user.id, role: user.role }, "N@vrajj272", {
+            expiresIn: "1h"
+        });
+
+        return res.status(201).json({ user, token });
+
     } catch (error) {
-        console.log("User creation failed", error);
+        logger.error(`User creation failed: ${error.message}`);
         return res.status(500).json({ error: error.message });
     }
 };
+
+
 
 
 const Login = async (req, res) => {
